@@ -37,6 +37,12 @@ jobs:
       - name: publish forge mod
         uses: Kir-Antipov/mc-publish@v3.3
         with:
+          name: Maxinuta ${{ github.ref_name }} for Minecraft 1.20.1
+          version: ${{ github.ref_name }}
+          version-type: alpha
+          game-versions: |
+            1.20.1
+
           modrinth-id: 3yiMtfYs
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
 
@@ -45,6 +51,9 @@ jobs:
 
           files: |
             forge/build/libs/*-forge.jar
+
+          java: |
+            17
 
       # Publish fabric mod
       - name: publish fabric mod
