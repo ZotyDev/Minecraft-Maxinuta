@@ -33,6 +33,16 @@ jobs:
       - name: build
         run: ./gradlew build
 
+      # Generate changelog
+      - name: generate changelog
+        uses: CSchoel/release-notes-from-changelog@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          version: ${{ github.ref_name }}
+          begin-pattern: '/^## Version ${{ env.VERSION }}/'
+          end-pattern: '/^## /'
+
       # Publish forge mod
       - name: publish forge mod
         uses: Kir-Antipov/mc-publish@v3.3
@@ -42,6 +52,8 @@ jobs:
           version-type: alpha
           game-versions: |
             1.20.1
+            
+          changelog-file: RELEASE.md
 
           modrinth-id: 3yiMtfYs
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
@@ -64,6 +76,8 @@ jobs:
           version-type: alpha
           game-versions: |
             1.20.1
+
+          changelog-file: RELEASE.md
 
           modrinth-id: 3yiMtfYs
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}

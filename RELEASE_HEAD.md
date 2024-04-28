@@ -1,0 +1,1 @@
+*These release notes are extracted from the main [changelog](https://github.com/ZotyDev/Minecraft-Maxinuta/blob/main/CHANGELOG.md)*
