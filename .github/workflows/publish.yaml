@@ -40,7 +40,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           version: ${{ github.ref_name }}
-          begin-pattern: '/^## Version ${{ env.VERSION }}/'
+          begin-pattern: '/^## Version ${{ github.ref_name }}/'
           end-pattern: '/^## /'
 
       # Publish forge mod
