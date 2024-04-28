@@ -3,7 +3,7 @@
 # certain platforms or Java versions, and provides a first line of defense
 # against bad commits.
 
-name: build
+name: Build
 on: [pull_request, push]
 
 jobs:
@@ -78,29 +78,3 @@ jobs:
           name: Forge
           path: forge/build/libs/
           if-no-files-found: error
-
-      # Publish forge mod
-      - name: publish forge mod
-        uses: Kir-Antipov/mc-publish@v3.3
-        with:
-          modrinth-id: 3yiMtfYs
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-
-          curseforge-id: 1010303
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-
-          files: |
-            forge/build/libs/*-forge.jar
-
-      # Publish fabric mod
-      - name: publish fabric mod
-        uses: Kir-Antipov/mc-publish@v3.3
-        with:
-          modrinth-id: 3yiMtfYs
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-
-          curseforge-id: 1010303
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-
-          files: |
-            fabric/build/libs/*-fabric.jar
