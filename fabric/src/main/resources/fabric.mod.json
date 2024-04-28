@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "maxinuta",
+  "version": "${version}",
+
+  "name": "Maxinuta",
+  "description": "",
+  "authors": [],
+  "contact": {},
+
+  "license": "MIT",
+  "icon": "icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.zoty.maxinuta.fabric.MaxinutaFabric"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.10",
+    "minecraft": ">=1.20.1"
+  }
+}
