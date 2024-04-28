@@ -37,7 +37,7 @@ jobs:
       - name: publish forge mod
         uses: Kir-Antipov/mc-publish@v3.3
         with:
-          name: Maxinuta ${{ github.ref_name }} for Minecraft 1.20.1
+          name: Maxinuta ${{ github.ref_name }} - 1.20.1 - Forge
           version: ${{ github.ref_name }}
           version-type: alpha
           game-versions: |
@@ -59,6 +59,12 @@ jobs:
       - name: publish fabric mod
         uses: Kir-Antipov/mc-publish@v3.3
         with:
+          name: Maxinuta ${{ github.ref_name }} - 1.20.1 - Forge
+          version: ${{ github.ref_name }}
+          version-type: alpha
+          game-versions: |
+            1.20.1
+
           modrinth-id: 3yiMtfYs
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
 
