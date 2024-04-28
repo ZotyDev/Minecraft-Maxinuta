@@ -42,7 +42,11 @@ remapJar {
     injectAccessWidener = true
     inputFile.set(shadowJar.archiveFile)
     dependsOn shadowJar
-    archiveClassifier = null
+    archiveClassifier = "fabric"
+}
+
+remapSourcesJar {
+    archiveClassifier = "fabric-sources"
 }
 
 jar {
