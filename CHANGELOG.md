@@ -1,5 +1,9 @@
 # Maxinuta Changelog
 
+## Version 0.0.5
+
+- *Items* - Changed `Fairy Dust` rarity to `common`
+
 ## Version 0.0.4
 
 - *CI/CD* - Added auto recognition for `CHANGELOG.md` to include version-specific changelogs for `publish` workflow

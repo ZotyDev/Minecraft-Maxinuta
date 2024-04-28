@@ -16,7 +16,6 @@ public class MaxinutaItems {
     public static final RegistrySupplier<Item> FAIRY_DUST = ITEMS.register(
             "fairy_dust",
             () -> new Item(new Item.Properties()
-                    .rarity(Rarity.UNCOMMON)
                     .arch$tab(MaxinutaCreativeTabs.MAXINUTA_TAB)
             )
     );
