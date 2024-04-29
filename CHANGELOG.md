@@ -1,5 +1,11 @@
 # Maxinuta Changelog
 
+## Version 0.0.6
+
+- *Misc* - Added logging
+- *Recipe* - Added `Fairy Dust` recipe (glowstone dust + redstone + slime ball)
+- *Recipe* - Added `Netherite Scrap` recipe (fairy dust + diamond + diamond)
+
 ## Version 0.0.5
 
 - *Items* - Changed `Fairy Dust` rarity to `common`
