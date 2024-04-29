@@ -1,5 +1,9 @@
 # Maxinuta Changelog
 
+## Version 0.0.8
+
+- *CI/CD* - Fixed Fabric releases being named as Forge
+
 ## Version 0.0.7
 
 - *Misc* - `Fairy Dust` transforms `Stone` into `Amethyst Block` when right-clicked and gets consumed
