@@ -1,6 +1,12 @@
 package dev.zoty.maxinuta.item.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
@@ -13,6 +19,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.Random;
+
 public class FairyDustItem extends Item {
     public FairyDustItem(Properties properties) {
         super(properties);
@@ -21,6 +29,7 @@ public class FairyDustItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext useOnContext) {
         Level level = useOnContext.getLevel();
+        Direction direction = useOnContext.getClickedFace();
         BlockPos positionClicked = useOnContext.getClickedPos();
         BlockState state = level.getBlockState(positionClicked);
 
@@ -50,10 +59,24 @@ public class FairyDustItem extends Item {
         }
 
         if (didTransform) {
-            level.playLocalSound(positionClicked, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 1, 1, true);
+            if (!level.isClientSide()) {
+                spawnParticles(level, positionClicked, direction);
+            }
+            level.playLocalSound(positionClicked, SoundEvents.AMETHYST_BLOCK_BREAK, SoundSource.BLOCKS, 1, 1, true);
             return InteractionResult.SUCCESS;
         } else {
             return InteractionResult.FAIL;
+        }
+    }
+
+    private void spawnParticles(Level level, BlockPos positionClicked, Direction direction) {
+        ParticleOptions particleOptions = new BlockParticleOption(ParticleTypes.BLOCK, Blocks.AMETHYST_BLOCK.defaultBlockState());
+        double x = positionClicked.getX() + 0.5 + 0.5 * direction.getStepX();
+        double y = positionClicked.getY() + 0.5 + 0.5 * direction.getStepY();
+        double z = positionClicked.getZ() + 0.5 + 0.5 * direction.getStepZ();
+
+        for (Player player : level.players()) {
+            ((ServerLevel) level).sendParticles(((ServerPlayer) player), particleOptions, true, x, y, z, 20, 0, 0, 0, 0);
         }
     }
 

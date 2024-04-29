@@ -2,6 +2,8 @@
 
 ## Version 0.0.8
 
+- *Misc* - Changed `Fairy Dust` transformation sound
+- *Misc* - Added particles to `Fairy Dust` transformation
 - *CI/CD* - Fixed Fabric releases being named as Forge
 - *CI/CD* - Added missing Java version to Fabric publish workflow
 
