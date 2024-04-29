@@ -1,5 +1,10 @@
 # Maxinuta Changelog
 
+## Version 0.0.7
+
+- *Misc* - `Fairy Dust` transforms `Stone` into `Amethyst Block` when right-clicked and gets consumed
+- *CI/CD* - Added proper dependencies to `publish` workflow
+
 ## Version 0.0.6
 
 - *Misc* - Added logging

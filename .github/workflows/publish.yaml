@@ -57,9 +57,13 @@ jobs:
 
           modrinth-id: 3yiMtfYs
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          modrinth-dependencies: |
+            architectury-api(required) 
 
           curseforge-id: 1010303
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          curseforge-dependencies: |
+            architectury-api(required)
 
           files: |
             forge/build/libs/*-forge.jar
@@ -81,9 +85,13 @@ jobs:
 
           modrinth-id: 3yiMtfYs
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          modrinth-dependencies: |
+            architectury-api(required)
 
           curseforge-id: 1010303
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          curseforge-dependencies: |
+            architectury-api(required)
 
           files: |
             fabric/build/libs/*-fabric.jar

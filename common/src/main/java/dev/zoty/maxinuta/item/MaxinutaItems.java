@@ -3,6 +3,7 @@ package dev.zoty.maxinuta.item;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import dev.zoty.maxinuta.Maxinuta;
+import dev.zoty.maxinuta.item.custom.FairyDustItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -15,7 +16,7 @@ public class MaxinutaItems {
 
     public static final RegistrySupplier<Item> FAIRY_DUST = ITEMS.register(
             "fairy_dust",
-            () -> new Item(new Item.Properties()
+            () -> new FairyDustItem(new Item.Properties()
                     .arch$tab(MaxinutaCreativeTabs.MAXINUTA_TAB)
             )
     );
