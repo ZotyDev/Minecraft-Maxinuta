@@ -95,3 +95,6 @@ jobs:
 
           files: |
             fabric/build/libs/*-fabric.jar
+
+          java: |
+            17
