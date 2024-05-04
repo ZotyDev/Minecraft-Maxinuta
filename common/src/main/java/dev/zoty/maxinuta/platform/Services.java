@@ -1,6 +1,6 @@
 package dev.zoty.maxinuta.platform;
 
-import dev.zoty.maxinuta.Constants;
+import dev.zoty.maxinuta.Maxinuta;
 import dev.zoty.maxinuta.platform.services.IPlatformHelper;
 
 import java.util.ServiceLoader;
@@ -24,7 +24,7 @@ public class Services {
         final T loadedService = ServiceLoader.load(clazz)
                 .findFirst()
                 .orElseThrow(() -> new NullPointerException("Failed to load service for " + clazz.getName()));
-        Constants.LOG.debug("Loaded {} for service {}", loadedService, clazz);
+        Maxinuta.LOG.debug("Loaded {} for service {}", loadedService, clazz);
         return loadedService;
     }
 }

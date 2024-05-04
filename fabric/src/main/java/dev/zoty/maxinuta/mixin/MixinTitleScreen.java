@@ -1,6 +1,6 @@
 package dev.zoty.maxinuta.mixin;
 
-import dev.zoty.maxinuta.Constants;
+import dev.zoty.maxinuta.Maxinuta;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,7 +14,7 @@ public class MixinTitleScreen {
     @Inject(at = @At("HEAD"), method = "init()V")
     private void init(CallbackInfo info) {
         
-        Constants.LOG.info("This line is printed by an example mod mixin from Fabric!");
-        Constants.LOG.info("MC Version: {}", Minecraft.getInstance().getVersionType());
+        Maxinuta.LOG.info("This line is printed by an example mod mixin from Fabric!");
+        Maxinuta.LOG.info("MC Version: {}", Minecraft.getInstance().getVersionType());
     }
 }
