@@ -55,6 +55,9 @@ jobs:
             
           changelog-file: RELEASE.md
 
+          loaders: |
+            forge
+
           modrinth-id: 3yiMtfYs
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
 
@@ -78,6 +81,9 @@ jobs:
             1.20.1
 
           changelog-file: RELEASE.md
+
+          loaders: |
+            fabric
 
           modrinth-id: 3yiMtfYs
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
