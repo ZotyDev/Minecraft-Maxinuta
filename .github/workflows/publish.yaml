@@ -62,7 +62,7 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           files: |
-            forge/build/libs/*-forge.jar
+            forge/build/libs/*forge-\d+\.\d+\.\d+-\d+\.\d+\.\d+\.jar
 
           java: |
             17
@@ -86,7 +86,7 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           files: |
-            fabric/build/libs/*-fabric.jar
+            fabric/build/libs/*-fabric-\d+\.\d+\.\d+-\d+\.\d+\.\d+\.jar
 
           java: |
             17
