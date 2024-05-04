@@ -4,7 +4,7 @@ import java.util.*
 plugins {
     java
     // Required for NeoGradle
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.8"
 }
 
 subprojects {

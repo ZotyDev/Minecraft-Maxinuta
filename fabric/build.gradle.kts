@@ -2,7 +2,7 @@ plugins {
     java
     idea
     `maven-publish`
-    id("fabric-loom") version("1.4-SNAPSHOT")
+    id("fabric-loom") version("1.6-SNAPSHOT")
 }
 
 val mod_id: String by project
