@@ -1,27 +1,15 @@
 package dev.zoty.maxinuta.item;
 
-import dev.architectury.registry.registries.DeferredRegister;
-import dev.architectury.registry.registries.RegistrySupplier;
 import dev.zoty.maxinuta.Maxinuta;
 import dev.zoty.maxinuta.item.custom.FairyDustItem;
-import net.minecraft.core.registries.Registries;
+import dev.zoty.maxinuta.registry.internal.RegistrationFunction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
 
 public class MaxinutaItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(
-            Maxinuta.MOD_ID,
-            Registries.ITEM
-    );
+    public static final Item FAIRY_DUST = new FairyDustItem(new Item.Properties());
 
-    public static final RegistrySupplier<Item> FAIRY_DUST = ITEMS.register(
-            "fairy_dust",
-            () -> new FairyDustItem(new Item.Properties()
-                    .arch$tab(MaxinutaCreativeTabs.MAXINUTA_TAB)
-            )
-    );
-
-    public static void register() {
-        ITEMS.register();
+    public static void register(RegistrationFunction<Item> function) {
+        function.register(BuiltInRegistries.ITEM, Maxinuta.asResource("fairy_dust"), FAIRY_DUST);
     }
 }

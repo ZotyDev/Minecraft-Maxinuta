@@ -1,29 +1,22 @@
 package dev.zoty.maxinuta.item;
 
-import dev.architectury.registry.CreativeTabRegistry;
-import dev.architectury.registry.registries.DeferredRegister;
-import dev.architectury.registry.registries.RegistrySupplier;
 import dev.zoty.maxinuta.Maxinuta;
-import net.minecraft.core.registries.Registries;
+import dev.zoty.maxinuta.registry.internal.RegistrationFunction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
 public class MaxinutaCreativeTabs {
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(
-            Maxinuta.MOD_ID,
-            Registries.CREATIVE_MODE_TAB
-    );
+    public static final CreativeModeTab MAXINUTA_TAB = CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
+            .icon(() -> new ItemStack(MaxinutaItems.FAIRY_DUST))
+            .title(Component.translatable("creativetab.maxinuta_tab"))
+            .displayItems((pParameters, pOutput) -> {
+                pOutput.accept(MaxinutaItems.FAIRY_DUST);
+            })
+            .build();
 
-    public static final RegistrySupplier<CreativeModeTab> MAXINUTA_TAB = CREATIVE_MODE_TABS.register(
-            "maxinuta_tab",
-            () -> CreativeTabRegistry.create(
-                    Component.translatable("category.maxinuta"),
-                    () -> new ItemStack(MaxinutaItems.FAIRY_DUST.get())
-            )
-    );
-
-    public static void register() {
-        CREATIVE_MODE_TABS.register();
+    public static void register(RegistrationFunction<CreativeModeTab> function) {
+        function.register(BuiltInRegistries.CREATIVE_MODE_TAB, Maxinuta.asResource("maxinuta_tab"), MAXINUTA_TAB);
     }
 }

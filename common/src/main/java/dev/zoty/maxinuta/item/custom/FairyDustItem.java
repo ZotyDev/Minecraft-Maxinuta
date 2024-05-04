@@ -19,9 +19,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.Random;
-
 public class FairyDustItem extends Item {
+
     public FairyDustItem(Properties properties) {
         super(properties);
     }
@@ -37,9 +36,8 @@ public class FairyDustItem extends Item {
         if (!level.isClientSide()) {
             Player player = useOnContext.getPlayer();
 
-            if (isValuableBlock(state)) {
+            if (isTransformable(state)) {
                 ItemStack itemStack = useOnContext.getItemInHand();
-                Inventory inventory = player.getInventory();
 
                 transformBlock(level, positionClicked);
 
@@ -53,7 +51,7 @@ public class FairyDustItem extends Item {
                 didTransform = true;
             }
         } else {
-            if (isValuableBlock(state)) {
+            if (isTransformable(state)) {
                 didTransform = true;
             }
         }
@@ -69,22 +67,22 @@ public class FairyDustItem extends Item {
         }
     }
 
+    private void transformBlock(Level level, BlockPos positionClicked) {
+        level.setBlock(positionClicked, Blocks.AMETHYST_BLOCK.defaultBlockState(), 1);
+    }
+
     private void spawnParticles(Level level, BlockPos positionClicked, Direction direction) {
         ParticleOptions particleOptions = new BlockParticleOption(ParticleTypes.BLOCK, Blocks.AMETHYST_BLOCK.defaultBlockState());
         double x = positionClicked.getX() + 0.5 + 0.5 * direction.getStepX();
         double y = positionClicked.getY() + 0.5 + 0.5 * direction.getStepY();
         double z = positionClicked.getZ() + 0.5 + 0.5 * direction.getStepZ();
 
-        for (Player player : level.players()) {
+        for (Player player: level.players()) {
             ((ServerLevel) level).sendParticles(((ServerPlayer) player), particleOptions, true, x, y, z, 20, 0, 0, 0, 0);
         }
     }
 
-    private void transformBlock(Level level, BlockPos positionClicked) {
-        level.setBlock(positionClicked, Blocks.AMETHYST_BLOCK.defaultBlockState(), 1);
-    }
-
-    private boolean isValuableBlock(BlockState state) {
+    private boolean isTransformable(BlockState state) {
         return state.is(Blocks.STONE);
     }
 }

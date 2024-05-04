@@ -1,5 +1,12 @@
 # Maxinuta Changelog
 
+## Version 0.0.9
+
+- *Dependencies/Internal* - Updated all the dependencies of the project to the latest versions 
+- *Dependencies* - Removed `Architectury API` from dependencies
+- *Internal* - Internal structure got rewritten from zero
+- 
+
 ## Version 0.0.8
 
 - *Misc* - Changed `Fairy Dust` transformation sound

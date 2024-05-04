@@ -1,19 +1,19 @@
 package dev.zoty.maxinuta;
 
-
-import dev.zoty.maxinuta.item.MaxinutaCreativeTabs;
-import dev.zoty.maxinuta.item.MaxinutaItems;
+import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Maxinuta
-{
-	public static final String MOD_ID = "maxinuta";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+public class Maxinuta {
+    public static final String MOD_ID = "maxinuta";
+    public static final String MOD_NAME = "Maxinuta";
+    public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
 
-	public static void init() {
-		LOGGER.info("Initializing mod: " + MOD_ID);
-		MaxinutaCreativeTabs.register();
-		MaxinutaItems.register();
-	}
+    public static void init() {
+        LOG.info("Initializing '" + MOD_ID + "' mod!!");
+    }
+
+    public static ResourceLocation asResource(String path) {
+        return new ResourceLocation(MOD_ID, path);
+    }
 }
