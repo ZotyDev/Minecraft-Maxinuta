@@ -1,5 +1,9 @@
 # Maxinuta Changelog
 
+## Version 0.0.10
+
+- *CI/CD* - Fixed an issue with `publish` workflow defaulting `.javadoc.jar` as the main mod file
+
 ## Version 0.0.9
 
 - *Dependencies/Internal* - Updated all the dependencies of the project to the latest versions 

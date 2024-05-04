@@ -65,7 +65,8 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           files: |
-            forge/build/libs/*-forge-*.jar
+            forge/build/libs/!(*-@(dev|sources|javadoc)).jar
+            forge/build/libs/*-@(dev|sources|javadoc).jar
 
           java: |
             17
@@ -92,7 +93,8 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           files: |
-            fabric/build/libs/*-fabric-*.jar
+            fabric/build/libs/!(*-@(dev|sources|javadoc)).jar
+            fabric/build/libs/*-@(dev|sources|javadoc).jar
 
           java: |
             17
