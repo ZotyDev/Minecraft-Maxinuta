@@ -2,7 +2,7 @@ plugins {
     idea
     java
     `maven-publish`
-    id ("org.spongepowered.gradle.vanilla") version "0.2.1-SNAPSHOT"
+    id ("org.spongepowered.gradle.vanilla") version("0.2.1-SNAPSHOT")
 }
 
 val mod_id: String by project

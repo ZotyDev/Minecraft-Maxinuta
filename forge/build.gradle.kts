@@ -1,8 +1,9 @@
 plugins {
     idea
     `maven-publish`
-    id("net.minecraftforge.gradle") version "[6.0,6.2)"
-    id("org.spongepowered.mixin") version "0.7-SNAPSHOT"
+    id("net.minecraftforge.gradle") version("[6.0,6.2)")
+    id("fabric-loom") version("1.6-SNAPSHOT")
+    id("org.spongepowered.mixin") version("0.7-SNAPSHOT")
 }
 
 val mod_id: String by project
