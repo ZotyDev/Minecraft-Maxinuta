@@ -1,4 +1,4 @@
-package dev.zoty.maxinuta.platform;
+package dev.zoty.maxinuta.fabric.platform;
 
 import dev.zoty.maxinuta.platform.services.IPlatformHelper;
 import net.fabricmc.loader.api.FabricLoader;
@@ -12,13 +12,11 @@ public class FabricPlatformHelper implements IPlatformHelper {
 
     @Override
     public boolean isModLoaded(String modId) {
-
         return FabricLoader.getInstance().isModLoaded(modId);
     }
 
     @Override
     public boolean isDevelopmentEnvironment() {
-
         return FabricLoader.getInstance().isDevelopmentEnvironment();
     }
 }

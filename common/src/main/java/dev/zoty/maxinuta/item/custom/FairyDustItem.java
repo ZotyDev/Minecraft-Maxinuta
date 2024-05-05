@@ -4,13 +4,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -20,7 +20,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class FairyDustItem extends Item {
-
     public FairyDustItem(Properties properties) {
         super(properties);
     }
@@ -71,6 +70,10 @@ public class FairyDustItem extends Item {
         level.setBlock(positionClicked, Blocks.AMETHYST_BLOCK.defaultBlockState(), 1);
     }
 
+    private boolean isTransformable(BlockState state) {
+        return state.is(Blocks.STONE);
+    }
+
     private void spawnParticles(Level level, BlockPos positionClicked, Direction direction) {
         ParticleOptions particleOptions = new BlockParticleOption(ParticleTypes.BLOCK, Blocks.AMETHYST_BLOCK.defaultBlockState());
         double x = positionClicked.getX() + 0.5 + 0.5 * direction.getStepX();
@@ -80,9 +83,5 @@ public class FairyDustItem extends Item {
         for (Player player: level.players()) {
             ((ServerLevel) level).sendParticles(((ServerPlayer) player), particleOptions, true, x, y, z, 20, 0, 0, 0, 0);
         }
-    }
-
-    private boolean isTransformable(BlockState state) {
-        return state.is(Blocks.STONE);
     }
 }

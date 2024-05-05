@@ -1,6 +1,6 @@
 ![Maxinuta Logo](https://raw.githubusercontent.com/ZotyDev/Minecraft-Maxinuta/main/branding/title.png)
 
-Magic mod for Forge + Fabric.
+Magic mod for Forge + Fabric + Quilt.
 
 ## 🧙‍♂️ What's this mod?
 It's a magic mod that (currently) adds new items to help you in your survival.

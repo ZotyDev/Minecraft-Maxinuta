@@ -2,9 +2,13 @@ plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
 }
 
+repositories {
+    maven { url "https://maven.quiltmc.org/repository/release/" }
+}
+
 architectury {
     platformSetupLoomIde()
-    fabric()
+    loader("quilt")
 }
 
 loom {
@@ -16,17 +20,21 @@ configurations {
     shadowCommon // Don't use shadow from the shadow plugin since it *excludes* files.
     compileClasspath.extendsFrom common
     runtimeClasspath.extendsFrom common
-    developmentFabric.extendsFrom common
+    developmentQuilt.extendsFrom common
 }
 
 dependencies {
-    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
-    // Remove the next line if you don't want to depend on the API
-    modApi "dev.architectury:architectury-fabric:${architectury_version}"
+    modImplementation "org.quiltmc:quilt-loader:${quilt_loader_version}"
+    modApi "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${quilt_fabric_api_version}"
+    // Remove the next few lines if you don't want to depend on the API
+    // modApi("dev.architectury:architectury-fabric:${architectury_version}") {
+    //     // We must not pull Fabric Loader from Architectury Fabric
+    //     exclude group: "net.fabricmc"
+    //     exclude group: "net.fabricmc.fabric-api"
+    // }
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionQuilt")) { transitive false }
 }
 
 shadowJar {
@@ -40,15 +48,6 @@ remapJar {
     injectAccessWidener = true
     input.set shadowJar.archiveFile
     dependsOn shadowJar
-    archiveClassifier = "fabric"
-}
-
-remapSourcesJar {
-    archiveClassifier = "fabric-sources"
-}
-
-jar {
-    archiveClassifier.set("dev")
 }
 
 sourcesJar {
@@ -65,7 +64,7 @@ components.java {
 
 publishing {
     publications {
-        mavenFabric(MavenPublication) {
+        mavenQuilt(MavenPublication) {
             artifactId = mod_id + "-" + project.name
             from components.java
         }

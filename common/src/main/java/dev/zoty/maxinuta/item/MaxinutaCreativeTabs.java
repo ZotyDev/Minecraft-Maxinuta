@@ -10,13 +10,13 @@ import net.minecraft.world.item.ItemStack;
 public class MaxinutaCreativeTabs {
     public static final CreativeModeTab MAXINUTA_TAB = CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
             .icon(() -> new ItemStack(MaxinutaItems.FAIRY_DUST))
-            .title(Component.translatable("creativetab.maxinuta_tab"))
-            .displayItems((pParameters, pOutput) -> {
-                pOutput.accept(MaxinutaItems.FAIRY_DUST);
+            .title(Component.translatable("itemGroup.maxinuta"))
+            .displayItems((itemDisplayParameters, output) -> {
+                output.accept(MaxinutaItems.FAIRY_DUST);
             })
             .build();
 
     public static void register(RegistrationFunction<CreativeModeTab> function) {
-        function.register(BuiltInRegistries.CREATIVE_MODE_TAB, Maxinuta.asResource("maxinuta_tab"), MAXINUTA_TAB);
+        function.register(BuiltInRegistries.CREATIVE_MODE_TAB, Maxinuta.asResource("maxinuta"), MAXINUTA_TAB);
     }
 }

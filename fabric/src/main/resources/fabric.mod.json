@@ -1,36 +1,26 @@
 {
-    "schemaVersion": 1,
-    "id": "maxinuta",
-    "version": "${version}",
-    "name": "${mod_name}",
-    "description": "${description}",
-    "authors": [
-        "${mod_author}"
-    ],
-    "contact": {
-        "homepage": "https://fabricmc.net/",
-        "sources": "https://github.com/FabricMC/fabric-example-mod"
-    },
-    "license": "${license}",
-    "icon": "assets/modid/${mod_id}.png",
-    "environment": "*",
-    "entrypoints": {
-        "main": [
-            "dev.zoty.maxinuta.MaxinutaFabric"
-        ]
-    },
-    "mixins": [
-        "${mod_id}.mixins.json",
-        "${mod_id}.fabric.mixins.json"
-    ],
-    "depends": {
-        "fabricloader": ">=0.14",
-        "fabric": "*",
-        "minecraft": "${minecraft_version}",
-        "java": ">=17"
-    },
-    "suggests": {
-        "another-mod": "*"
-    }
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${project_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "${project_homepage}",
+    "sources": "${project_issues}"
+  },
+  "license": "${mod_license}",
+  "icon": "assets/${mod_id}/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "${project_group}.fabric.${fabric_entrypoint}"
+    ]
+  },
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=${minecraft_version}"
+  }
 }
-  

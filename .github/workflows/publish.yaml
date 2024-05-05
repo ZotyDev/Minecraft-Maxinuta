@@ -65,8 +65,7 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           files: |
-            forge/build/libs/!(*-@(dev|sources|javadoc)).jar
-            forge/build/libs/*-@(dev|sources|javadoc).jar
+            forge/build/libs/*-forge.jar
 
           java: |
             17
@@ -93,8 +92,34 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           files: |
-            fabric/build/libs/!(*-@(dev|sources|javadoc)).jar
-            fabric/build/libs/*-@(dev|sources|javadoc).jar
+            fabric/build/libs/*-fabric.jar
+
+          java: |
+            17
+
+      # Publish quilt mod
+      - name: publish quilt mod
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          name: Maxinuta ${{ github.ref_name }} - 1.20.1 - Quilt
+          version: ${{ github.ref_name }}
+          version-type: alpha
+          game-versions: |
+            1.20.1
+
+          changelog-file: RELEASE.md
+
+          loaders: |
+            quilt
+
+          modrinth-id: 3yiMtfYs
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          curseforge-id: 1010303
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+
+          files: |
+            quilt/build/libs/*-quilt.jar
 
           java: |
             17

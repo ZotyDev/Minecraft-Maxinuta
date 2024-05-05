@@ -1,12 +1,12 @@
-package dev.zoty.maxinuta;
+package dev.zoty.maxinuta.fabric;
 
+import dev.zoty.maxinuta.Maxinuta;
 import dev.zoty.maxinuta.item.MaxinutaCreativeTabs;
 import dev.zoty.maxinuta.item.MaxinutaItems;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.Registry;
 
 public class MaxinutaFabric implements ModInitializer {
-    
     @Override
     public void onInitialize() {
         Maxinuta.LOG.info("Hello Fabric world!");

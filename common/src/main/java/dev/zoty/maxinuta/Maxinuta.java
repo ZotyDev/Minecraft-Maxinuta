@@ -10,7 +10,7 @@ public class Maxinuta {
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
 
     public static void init() {
-        LOG.info("Initializing '" + MOD_ID + "' mod!!");
+        LOG.info("Initializing {}", MOD_NAME);
     }
 
     public static ResourceLocation asResource(String path) {

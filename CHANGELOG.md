@@ -1,5 +1,11 @@
 # Maxinuta Changelog
 
+## Version 0.0.11
+
+- *Loader* - Added native support for `Quilt`
+- *Environment* - Added Arch Loom
+- *CI/CD* - Made changes to reflect the new mod architecture
+
 ## Version 0.0.10
 
 - *CI/CD* - Fixed an issue with `publish` workflow defaulting `.javadoc.jar` as the main mod file
@@ -9,7 +15,6 @@
 - *Dependencies/Internal* - Updated all the dependencies of the project to the latest versions 
 - *Dependencies* - Removed `Architectury API` from dependencies
 - *Internal* - Internal structure got rewritten from zero
-- 
 
 ## Version 0.0.8
 
