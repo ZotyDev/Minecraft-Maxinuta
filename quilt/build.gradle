@@ -48,6 +48,15 @@ remapJar {
     injectAccessWidener = true
     input.set shadowJar.archiveFile
     dependsOn shadowJar
+    archiveClassifier = "quilt"
+}
+
+remapSourcesJar {
+    archiveClassifier = "quilt-sources"
+}
+
+jar {
+    archiveClassifier.set("dev")
 }
 
 sourcesJar {
